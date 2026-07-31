@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Team Party Host</title>
+    <link rel="stylesheet" href="/app.css" />
+  </head>
+  <body>
+    <main class="page host-page">
+      <section class="card">
+        <div class="header-row">
+          <div>
+            <p class="eyebrow">TEAM PARTY</p>
+            <h1>Host a party</h1>
+          </div>
+
+          <button id="create-party-btn" class="button">
+            Create new party
+          </button>
+        </div>
+
+        <div id="empty-state" class="empty-state">
+          Create a party to generate a QR code for your guests.
+        </div>
+
+        <div id="party-content" hidden>
+          <div class="host-grid">
+            <div class="qr-panel">
+              <h2>Join this party</h2>
+              <div id="qrcode" class="qr-code"></div>
+
+              <p class="join-code-label">Join code</p>
+              <p id="join-code" class="join-code"></p>
+
+              <p class="small-text">
+                Guests can scan the QR code or visit the link below.
+              </p>
+
+              <a id="join-link" class="join-link" target="_blank"></a>
+            </div>
+
+            <div>
+              <h2>Participants (<span id="participant-count">0</span>)</h2>
+              <ul id="participant-list" class="participant-list"></ul>
+
+              <div id="start-panel" class="start-panel">
+                <label for="team-count">Number of teams</label>
+
+                <div class="start-controls">
+                  <input
+                    id="team-count"
+                    type="number"
+                    min="1"
+                    value="2"
+                  />
+                  <button id="start-btn" class="button success">
+                    Start teams
+                  </button>
+                </div>
+
+                <p id="host-message" class="message"></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="teams-section" class="teams-section" hidden>
+        <h2>Assigned teams</h2>
+        <div id="teams-list" class="teams-list"></div>
+      </section>
+    </main>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
+    <script src="/host.js"></script>
+  </body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Join Team Party</title>
+    <link rel="stylesheet" href="/app.css" />
+  </head>
+  <body>
+    <main class="join-page">
+      <section id="join-card" class="card join-card">
+        <p class="eyebrow">TEAM PARTY</p>
+        <h1>Join the party</h1>
+        <p id="party-code-text" class="small-text"></p>
+
+        <form id="join-form">
+          <label for="name">Your name</label>
+          <input
+            id="name"
+            type="text"
+            maxlength="40"
+            placeholder="Example: Alex"
+            autocomplete="name"
+            required
+          />
+
+          <button class="button full-width" type="submit">Join party</button>
+        </form>
+
+        <p id="join-message" class="message"></p>
+      </section>
+
+      <section id="lobby-card" class="card join-card" hidden>
+        <p class="eyebrow">YOU'RE IN</p>
+        <h1>Waiting for the host</h1>
+        <p>
+          Keep this screen open. Your team colour will appear when the host
+          starts the game.
+        </p>
+
+        <div class="loading-dots">
+          <span></span><span></span><span></span>
+        </div>
+      </section>
+
+      <section id="team-screen" class="team-screen" hidden>
+        <p class="team-screen-label">YOUR TEAM</p>
+        <h1 id="team-name">Team 1</h1>
+        <div id="team-color-circle" class="team-color-circle"></div>
+        <p>Find the people with the same colour.</p>
+      </section>
+    </main>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/join.js"></script>
+  </body>
+</html>
